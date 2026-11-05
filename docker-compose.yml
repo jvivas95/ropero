@@ -21,6 +21,8 @@ services:
       MYSQL_USER: ropero
       MYSQL_PASSWORD: secret
       MYSQL_ROOT_PASSWORD: secret
+    ports:
+      - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
     healthcheck:
