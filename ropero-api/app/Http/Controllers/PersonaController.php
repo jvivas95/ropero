@@ -6,6 +6,7 @@ use App\Http\Requests\StorePersonaRequest;
 use App\Http\Requests\UpdatePersonaRequest;
 use Illuminate\Http\Request;
 use App\Models\Persona;
+use App\Http\Resources\PersonaResource;
 
 class PersonaController extends Controller
 {
@@ -20,7 +21,7 @@ class PersonaController extends Controller
             ->paginate(10);
 
         // Return data in JSON format
-        return response()->json($personas);
+        return PersonaResource::collection($personas);
     }
     /**
      * Display the results of search
@@ -43,7 +44,7 @@ class PersonaController extends Controller
             ->paginate(10);
 
         // Return the paginated results in JSON format
-        return response()->json();
+        return PersonaResource::collection($personas);
     }
 
     /**
@@ -55,7 +56,7 @@ class PersonaController extends Controller
         $persona = Persona::create($request->validated());
 
         // return the response
-        return response()->json($persona, 201);
+        return new PersonaResource($persona);
     }
 
     /**
@@ -65,7 +66,7 @@ class PersonaController extends Controller
     {
         // Route model binding already loaded the record (or returned a 404)
 
-        return response()->json($persona);
+        return new PersonaResource($persona);
     }
 
     /**
@@ -76,7 +77,7 @@ class PersonaController extends Controller
         // Update only de fields that passed validation
         $persona->update($request->validated());
 
-        return response()->json($persona);
+        return new PersonaResource($persona);
     }
 
     /**
