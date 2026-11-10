@@ -20,6 +20,6 @@ class PersonaResource extends JsonResource
             'apellido' => $this->apellido,
             'telefono' => $this->telefono,
             'created_at' => $this->created_at,
-        ]
+        ];
     }
 }

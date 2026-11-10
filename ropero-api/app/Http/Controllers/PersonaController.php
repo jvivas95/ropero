@@ -74,7 +74,7 @@ class PersonaController extends Controller
      */
     public function update(UpdatePersonaRequest $request, Persona $persona)
     {
-        // Update only de fields that passed validation
+        // Update only the fields that passed validation
         $persona->update($request->validated());
 
         return new PersonaResource($persona);

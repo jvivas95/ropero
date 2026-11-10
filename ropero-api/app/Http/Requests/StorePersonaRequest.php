@@ -24,7 +24,7 @@ class StorePersonaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'sometimes' makes the field optional, but if sent it must be valid
+            //
             'nombre' => 'required|string|max:100',
             'apellido' => 'required|string|max:100',
             'telefono' => 'required|string|max:20'
