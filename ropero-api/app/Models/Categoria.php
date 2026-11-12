@@ -10,8 +10,12 @@ use App\Models\Prenda;
 class Categoria extends Model
 {
     // app/Models/Categoria.php
-    protected $fillable = ['nombre'];
+    protected $fillable = ['nombre', 'activo'];
 
+    public function casts():array
+    {
+        return ['activo' => 'boolean'];
+    }
     public function prendas(): HasMany
     {
         return $this->hasMany(Prenda::class);
