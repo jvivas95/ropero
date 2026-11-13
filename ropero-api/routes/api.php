@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\VoluntarioController;
 use Illuminate\Http\Request;
@@ -14,4 +15,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('voluntarios/find', [VoluntarioController::class, 'find']);
     Route::apiResource('voluntarios', VoluntarioController::class)->except(['destroy']);
 
+    Route::apiResource('categorias', CategoriaController::class)->except(['destroy']);
 });
